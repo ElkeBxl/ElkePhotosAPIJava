@@ -11,7 +11,7 @@ public class StubPhotoRepositoryImpl implements StubPhotoRepository {
 
     private List<Photo> photos = new ArrayList<Photo>();
 
-    public StubPhotoRepositoryImpl() {
+    public void init() {
         photos.add(new Photo(1));
         photos.add(new Photo(2));
         photos.add(new Photo(3));
@@ -40,6 +40,10 @@ public class StubPhotoRepositoryImpl implements StubPhotoRepository {
 
     @Override
     public Optional<Photo> findById(Integer integer) {
+        int index = this.photos.indexOf(new Photo(integer));
+        if (index >= 0) {
+            return Optional.of(this.photos.get(index));
+        }
         return Optional.empty();
     }
 
