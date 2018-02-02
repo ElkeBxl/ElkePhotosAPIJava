@@ -1,12 +1,14 @@
 package photos.elke.api.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import photos.elke.api.model.Photo;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class StubPhotoRepositoryImpl implements StubPhotoRepository {
 
     private List<Photo> photos = new ArrayList<Photo>();

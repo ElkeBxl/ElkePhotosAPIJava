@@ -1,6 +1,8 @@
 package photos.elke.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,17 +22,17 @@ public class ApiController {
     }
 
     @RequestMapping(value = "photos", method = RequestMethod.PUT)
-    public String update() {
-        return "PUT!";
+    public ResponseEntity update() {
+        return new ResponseEntity(HttpStatus.NOT_IMPLEMENTED);
     }
 
     @RequestMapping(value = "photos", method = RequestMethod.POST)
-    public String create() {
-        return "POST!";
+    public ResponseEntity create() {
+        return new ResponseEntity(HttpStatus.NOT_IMPLEMENTED);
     }
 
     @RequestMapping(value = "photos", method = RequestMethod.DELETE)
-    public String remove() {
-        return "DELETE!";
+    public ResponseEntity remove() {
+        return new ResponseEntity(HttpStatus.NOT_IMPLEMENTED);
     }
 }

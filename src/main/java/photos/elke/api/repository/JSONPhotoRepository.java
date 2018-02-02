@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import photos.elke.api.model.Photo;
 
 @Repository
-public interface StubPhotoRepository extends CrudRepository<Photo, Integer> {
+public interface JSONPhotoRepository extends CrudRepository<Photo, Integer> {
 }
