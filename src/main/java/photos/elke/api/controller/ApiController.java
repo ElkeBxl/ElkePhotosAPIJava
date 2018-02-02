@@ -6,19 +6,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import photos.elke.api.repository.StubPhotoRepository;
+import photos.elke.api.service.PhotoService;
 
 @RestController
 @RequestMapping("api/v1/")
 public class ApiController {
 
     @Autowired
-    private StubPhotoRepository repository;
+    private PhotoService service;
 
     @RequestMapping(value = "photos", method = RequestMethod.GET)
     public String getAll() {
-        this.repository.findAll();
-        return "GET!";
+        return this.service.getProject365Photos();
     }
 
     @RequestMapping(value = "photos", method = RequestMethod.PUT)
