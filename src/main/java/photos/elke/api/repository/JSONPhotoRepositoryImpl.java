@@ -1,14 +1,27 @@
 package photos.elke.api.repository;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Repository;
 import photos.elke.api.model.Photo;
 
-import java.util.ArrayList;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
 @Repository
 public class JSONPhotoRepositoryImpl implements JSONPhotoRepository {
+
+    private List<Photo> photos;
+
+    public JSONPhotoRepositoryImpl() throws IOException {
+        ClassLoader classLoader = getClass().getClassLoader();
+        File file = new File(classLoader.getResource("project365.json").getFile());
+        ObjectMapper jsonMapper = new ObjectMapper();
+        this.photos = jsonMapper.readValue(file, new TypeReference<List<Photo>>() { });
+    }
+
     @Override
     public <S extends Photo> S save(S s) {
         return null;
@@ -31,9 +44,7 @@ public class JSONPhotoRepositoryImpl implements JSONPhotoRepository {
 
     @Override
     public Iterable<Photo> findAll() {
-        List<Photo> result = new ArrayList<Photo>();
-        result.add(new Photo(1));
-        return result;
+        return this.photos;
     }
 
     @Override
