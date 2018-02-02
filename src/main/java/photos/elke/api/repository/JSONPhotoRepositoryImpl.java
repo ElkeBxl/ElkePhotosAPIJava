@@ -3,6 +3,8 @@ package photos.elke.api.repository;
 import org.springframework.stereotype.Repository;
 import photos.elke.api.model.Photo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -29,7 +31,9 @@ public class JSONPhotoRepositoryImpl implements JSONPhotoRepository {
 
     @Override
     public Iterable<Photo> findAll() {
-        return null;
+        List<Photo> result = new ArrayList<Photo>();
+        result.add(new Photo(1));
+        return result;
     }
 
     @Override
